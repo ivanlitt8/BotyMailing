@@ -22,7 +22,7 @@ export default function Home() {
             priority
           />
           <div className="text-center sm:text-left sm:ml-8 ml-0 max-w-screen-md">
-            <h1 className="text-[#6218AB] uppercase font-bold text-3xl sm:text-5xl md:text-6xl">
+            <h1 className="text-[#6218AB] uppercase font-bold text-4xl sm:text-5xl md:text-6xl">
               bienvenido a boty
             </h1>
             <p className="text-[#6218AB] font-bold text-lg sm:text-xl md:text-2xl mt-2">
@@ -38,15 +38,14 @@ export default function Home() {
             estrategia y no en la operación.
           </p>
         </div>
-        {/* text-lg sm:text-xl md:text-2xl */}
         <div className="mt-10 text-lg sm:text-xl md:text-2xl text-[#041B3E] text-left sm:text-center mx-4 sm:mx-0">
           <span className="font-medium">
             Conocé cómo nuestro módulo de{" "}
             <strong>Gestión Automática de Facturación puede ayudarte:</strong>
           </span>
         </div>
-        <div className="flex gap-2 my-10 mx-40">
-          <div className="border w-1/3 text-[#041B3E] border-[#DFE1E9] bg-[#F8F7FD] rounded-lg p-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-4">
+          <div className="border w-full sm:w-1/3 text-[#041B3E] border-[#DFE1E9] bg-[#F8F7FD] rounded-lg p-4 sm:p-6">
             <div className="mr-4">
               <Image
                 src="/orderIcon.svg"
@@ -63,7 +62,7 @@ export default function Home() {
               automatizada y masiva.
             </p>
           </div>
-          <div className="bg-[#FFAE5E] w-1/3 text-[#041B3E] rounded-lg p-4">
+          <div className="bg-[#FFAE5E] w-full sm:w-1/3 text-[#041B3E] rounded-lg p-4 sm:p-6">
             <div className="mr-4">
               <Image
                 src="/mailIcon.svg"
@@ -80,7 +79,7 @@ export default function Home() {
               clientes.
             </p>
           </div>
-          <div className="bg-[#66BEFE] text-[#041B3E] w-1/3 shadow-md rounded-lg p-4">
+          <div className="bg-[#66BEFE] text-[#041B3E] w-full sm:w-1/3 shadow-md rounded-lg p-4 sm:p-6">
             <div className="mr-4">
               <Image
                 src="/timeIcon.svg"
@@ -97,11 +96,11 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-between p-4 bg-white rounded-full shadow-md w-2/5 mx-auto border border-[#D9D9D9]">
-          <span className="text-[#041B3E] font-medium pl-4">
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-full shadow-md w-2/5 mx-auto border border-[#D9D9D9]">
+          <span className="text-[#041B3E] font-medium sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0">
             Probá Boty ahora mismo (7 días sin costo)
           </span>
-          <button className="flex items-center bg-[#A58EFF] text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-[#8a6cec]">
+          <button className="flex items-center bg-[#A58EFF] text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-[#8a6cec] mt-2 sm:mt-0">
             Empecemos →
           </button>
         </div>
