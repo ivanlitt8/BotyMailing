@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="bg-yellow-300 w-full font-semibold text-xs sm:text-sm h-6 text-black text-center">
+      <div className="bg-yellow-300 w-full font-semibold text-xs sm:text-sm h-6 text-black flex items-center justify-center">
         <span> Promoción módulo facturación (7 días sin costo)</span>
       </div>
       <main className="flex-1">
@@ -38,14 +38,14 @@ export default function Home() {
             estrategia y no en la operación.
           </p>
         </div>
-        <div className="mt-10 text-lg sm:text-xl md:text-2xl text-[#041B3E] text-left sm:text-center mx-4 sm:mx-0">
+        <div className="mt-10 text-lg sm:text-xl md:text-2xl text-[#041B3E] text-left sm:text-center mx-4 sm:mx-10">
           <span className="font-medium">
             Conocé cómo nuestro módulo de{" "}
             <strong>Gestión Automática de Facturación puede ayudarte:</strong>
           </span>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-4">
-          <div className="border w-full sm:w-1/3 text-[#041B3E] border-[#DFE1E9] bg-[#F8F7FD] rounded-lg p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-10">
+          <div className="w-full sm:w-1/3 text-[#041B3E] bg-[#FF6C7A] rounded-lg p-4 sm:p-6">
             <div className="mr-4">
               <Image
                 src="/orderIcon.svg"
@@ -96,15 +96,20 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-3xl sm:rounded-full shadow-md max-w-full mx-4 sm:mx-auto border border-[#D9D9D9]">
-          <span className="text-[#041B3E] text-sm sm:text-base font-medium sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap">
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-2xl sm:rounded-full shadow-md max-w-full mx-2 sm:mx-10 md:mx-32 border border-[#D9D9D9]">
+          <span className="text-[#041B3E] text-sm sm:text-base font-bold sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap">
             Probá Boty ahora mismo (7 días sin costo)
           </span>
-          <button className="flex items-center bg-[#A58EFF] text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-[#8a6cec] mt-2 sm:mt-0 whitespace-nowrap text-base sm:text-lg">
+          <a
+            href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-[#A58EFF] text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-[#8a6cec] mt-2 sm:mt-0 whitespace-nowrap text-base sm:text-lg"
+          >
             Empecemos →
-          </button>
+          </a>
         </div>
-        <div className="text-center pt-2 text-xs font-semibold">
+        <div className="text-center pt-6 text-xs sm:font-semibold font-bold">
           <p>
             *Contrata Boty desde $16.000 por mes y te bonificamos 7 días para
             que puedas probar la herramienta.
