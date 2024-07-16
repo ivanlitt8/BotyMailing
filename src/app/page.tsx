@@ -96,11 +96,11 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-full shadow-md w-2/5 mx-auto border border-[#D9D9D9]">
-          <span className="text-[#041B3E] font-medium sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0">
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-3xl sm:rounded-full shadow-md max-w-full mx-4 sm:mx-auto border border-[#D9D9D9]">
+          <span className="text-[#041B3E] text-sm sm:text-base font-medium sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap">
             Probá Boty ahora mismo (7 días sin costo)
           </span>
-          <button className="flex items-center bg-[#A58EFF] text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-[#8a6cec] mt-2 sm:mt-0">
+          <button className="flex items-center bg-[#A58EFF] text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-[#8a6cec] mt-2 sm:mt-0 whitespace-nowrap text-base sm:text-lg">
             Empecemos →
           </button>
         </div>
