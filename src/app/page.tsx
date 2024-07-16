@@ -1,10 +1,31 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect } from "react";
+import { gsap } from "gsap";
 
 export default function Home() {
   useEffect(() => {
     document.title = "Boty - Facturación";
+    gsap.fromTo(
+      "#card1",
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1,1)" }
+    );
+    gsap.fromTo(
+      "#card2",
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.1)", delay: 0.2 }
+    );
+    gsap.fromTo(
+      "#card3",
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.2)", delay: 0.4 }
+    );
+    gsap.fromTo(
+      "#banner p",
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power2.in" }
+    );
   }, []);
 
   return (
@@ -31,7 +52,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="bg-primary max-w-screen-md mx-10 sm:mx-auto rounded-xl mt-10 p-6 sm:p-10 flex items-center justify-center text-center">
+        <div
+          id="banner"
+          className="bg-primary max-w-screen-md mx-10 sm:mx-auto rounded-xl mt-10 p-6 sm:p-10 flex items-center justify-center text-center"
+        >
           <p className="font-bold text-white text-center text-md sm:text-xl">
             Te ayudamos a mejorar la rentabilidad de tu negocio con herramientas
             que te permiten automatizar tus procesos, para que te enfoques en la
@@ -45,7 +69,10 @@ export default function Home() {
           </span>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-10">
-          <div className="w-full sm:w-1/3 text-textprimary bg-salmon rounded-lg p-4 sm:p-6">
+          <div
+            id="card1"
+            className="w-full sm:w-1/3 text-textprimary bg-salmon rounded-lg p-4 sm:p-6"
+          >
             <div className="mr-4">
               <Image
                 src="/orderIcon.svg"
@@ -62,7 +89,10 @@ export default function Home() {
               automatizada y masiva.
             </p>
           </div>
-          <div className="bg-secondary w-full sm:w-1/3 text-textprimary rounded-lg p-4 sm:p-6">
+          <div
+            id="card2"
+            className="bg-secondary w-full sm:w-1/3 text-textprimary rounded-lg p-4 sm:p-6"
+          >
             <div className="mr-4">
               <Image
                 src="/mailIcon.svg"
@@ -79,7 +109,10 @@ export default function Home() {
               clientes.
             </p>
           </div>
-          <div className="bg-accent text-textprimary w-full sm:w-1/3 shadow-md rounded-lg p-4 sm:p-6">
+          <div
+            id="card3"
+            className="bg-accent text-textprimary w-full sm:w-1/3 shadow-md rounded-lg p-4 sm:p-6"
+          >
             <div className="mr-4">
               <Image
                 src="/timeIcon.svg"
