@@ -24,7 +24,7 @@ export default function Home() {
     gsap.fromTo(
       "#banner p",
       { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.in" }
+      { opacity: 1, duration: 1.2, ease: "power2.in" }
     );
   }, []);
 
@@ -73,14 +73,13 @@ export default function Home() {
             id="card1"
             className="w-full sm:w-1/3 text-textprimary bg-salmon rounded-lg p-4 sm:p-6"
           >
-            <div className="mr-4">
-              <Image
-                src="/orderIcon.svg"
-                alt="Facturación Automática"
-                width={48}
-                height={48}
-              />
-            </div>
+            <Image
+              src="/orderIcon.svg"
+              alt="Facturación Automática"
+              width={48}
+              height={48}
+              className="mr-4"
+            />
             <h3 className="font-bold text-lg my-2">
               1. Facturación Automática
             </h3>
@@ -93,14 +92,13 @@ export default function Home() {
             id="card2"
             className="bg-secondary w-full sm:w-1/3 text-textprimary rounded-lg p-4 sm:p-6"
           >
-            <div className="mr-4">
-              <Image
-                src="/mailIcon.svg"
-                alt="Facturación Automática"
-                width={48}
-                height={48}
-              />
-            </div>
+            <Image
+              src="/mailIcon.svg"
+              alt="Facturación Automática"
+              width={48}
+              height={48}
+              className="mr-4"
+            />
             <h3 className="text-lg font-bold my-2">
               2. Envía tus Comprobantes
             </h3>
@@ -113,14 +111,13 @@ export default function Home() {
             id="card3"
             className="bg-accent text-textprimary w-full sm:w-1/3 shadow-md rounded-lg p-4 sm:p-6"
           >
-            <div className="mr-4">
-              <Image
-                src="/timeIcon.svg"
-                alt="Facturación Automática"
-                width={48}
-                height={48}
-              />
-            </div>
+            <Image
+              src="/timeIcon.svg"
+              alt="Facturación Automática"
+              width={48}
+              height={48}
+              className="mr-4"
+            />
             <h3 className="text-lg font-bold my-2">
               3. Procesos Rápidos y Eficientes
             </h3>
