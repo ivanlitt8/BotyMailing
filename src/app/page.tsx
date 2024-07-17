@@ -11,6 +11,19 @@ export default function Home() {
   const scrollRef = useRef(null);
 
   useGSAP(() => {
+    gsap.to("#boty", {
+      y: -90,
+      opacity: 1,
+      duration: 2,
+      ease: "elastic.inOut(1,2)",
+      delay: 2,
+      scrollTrigger: {
+        trigger: "#boty",
+        start: "bottom bottom",
+        end: "top top",
+        scrub: true,
+      },
+    });
     gsap.fromTo(
       "#card",
       { y: 50, opacity: 0 },
@@ -60,19 +73,20 @@ export default function Home() {
       <div className="bg-yellow-300 w-full font-semibold text-xs sm:text-sm h-6 text-black flex items-center justify-center">
         <span> Promoción módulo facturación (7 días sin costo)</span>
       </div>
+      <Image
+        src="/botyLogo.svg"
+        alt="Boty Logo"
+        width={150}
+        height={24}
+        priority
+        className="mx-auto"
+      />
+      <h1 className="uppercase font-thin text-center text-textprimary text-2xl sm:text-3xl md:text-4xl">
+        ¡bienvenido!
+      </h1>
       <main className="flex-1">
-        <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:items-start mt-10">
-          <Image
-            src="/boty.svg"
-            alt="Boty Logo"
-            width={100}
-            height={24}
-            priority
-          />
+        <div className="flex flex-col items-center sm:flex-row pb-12 sm:justify-center sm:items-start mt-10">
           <div className="text-center sm:text-left sm:ml-8 ml-0 max-w-screen-md">
-            <h1 className="uppercase font-bold text-primary text-4xl sm:text-5xl md:text-6xl">
-              bienvenido a boty
-            </h1>
             <p className="font-bold text-lg text-textprimary sm:text-xl md:text-2xl mt-2">
               Utilizamos la tecnología para desarrollar herramientas que
               impulsan tu negocio.
@@ -81,14 +95,24 @@ export default function Home() {
         </div>
         <div
           id="banner"
-          className="bg-primary max-w-screen-md mx-10 sm:mx-auto rounded-xl mt-10 p-6 sm:p-10 flex items-center justify-center text-center"
+          className="relative z-40 bg-white border-2 border-primary max-w-screen-md mx-10 sm:mx-auto rounded-xl mt-10 p-6 sm:p-10 flex items-center justify-center text-center"
         >
-          <p className="font-bold text-white text-center text-md sm:text-xl">
+          <p className="font-bold z-40 text-primary text-center text-md sm:text-xl">
             Te ayudamos a mejorar la rentabilidad de tu negocio con herramientas
             que te permiten automatizar tus procesos, para que te enfoques en la
             estrategia y no en la operación.
           </p>
+          <Image
+            src="/boty.svg"
+            alt="Boty Logo"
+            width={100}
+            height={24}
+            //priority
+            className="absolute left-0 inset-0 top-0 z-0 opacity-0"
+            id="boty"
+          />
         </div>
+
         <div className="mt-10 text-lg sm:text-xl md:text-2xl text-textprimary text-left sm:text-center mx-4 sm:mx-10">
           <span className="font-medium">
             Conocé cómo nuestro módulo de{" "}
