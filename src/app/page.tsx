@@ -11,19 +11,23 @@ export default function Home() {
   const scrollRef = useRef(null);
 
   useGSAP(() => {
-    gsap.to("#boty", {
-      y: -90,
-      opacity: 1,
-      duration: 2,
-      ease: "elastic.inOut(1,2)",
-      delay: 2,
-      scrollTrigger: {
-        trigger: "#boty",
-        start: "bottom bottom",
-        end: "top top",
-        scrub: true,
-      },
-    });
+    gsap.fromTo(
+      "#boty",
+      { y: 0, opacity: 0 }, // Posicionada inicialmente fuera del div y oculta
+      {
+        y: -90,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out", // Animar a la parte inferior con opacidad 1
+        scrollTrigger: {
+          trigger: "#banner",
+          start: "bottom bottom",
+          end: "top top",
+          scrub: true,
+        },
+        delay: 1,
+      }
+    );
     gsap.fromTo(
       "#card",
       { y: 50, opacity: 0 },
@@ -47,7 +51,7 @@ export default function Home() {
     );
     gsap.fromTo(
       "#button",
-      { x: "-100%", opacity: 0 },
+      { x: "-100%", opacity: 0, display: "none" },
       {
         x: "0%",
         opacity: 1,
@@ -81,7 +85,7 @@ export default function Home() {
         priority
         className="mx-auto"
       />
-      <h1 className="uppercase font-thin text-center text-textprimary text-2xl sm:text-3xl md:text-4xl">
+      <h1 className="uppercase font-semibold text-center text-textprimary text-2xl sm:text-3xl md:text-4xl">
         ¡bienvenido!
       </h1>
       <main className="flex-1">
@@ -108,8 +112,8 @@ export default function Home() {
             width={100}
             height={24}
             //priority
-            className="absolute left-0 inset-0 top-0 z-0 opacity-0"
             id="boty"
+            className="absolute left-0 top-0 z-[-10]"
           />
         </div>
 
