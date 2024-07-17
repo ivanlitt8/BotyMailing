@@ -16,7 +16,7 @@ export default function Home() {
       opacity: 1,
       duration: 2,
       ease: "elastic.inOut(1,2)",
-      delay: 2,
+      delay: 1,
       scrollTrigger: {
         trigger: "#boty",
         start: "bottom bottom",
