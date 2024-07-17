@@ -1,10 +1,15 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const scrollRef = useRef(null);
+
   useGSAP(() => {
     gsap.fromTo(
       "#card",
@@ -17,16 +22,6 @@ export default function Home() {
         stagger: 0.3,
       }
     );
-    // gsap.fromTo(
-    //   "#card2",
-    //   { y: 50, opacity: 0 },
-    //   { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.2)", delay: 0.2 }
-    // );
-    // gsap.fromTo(
-    //   "#card3",
-    //   { y: 50, opacity: 0 },
-    //   { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.2)", delay: 0.4 }
-    // );
     gsap.fromTo(
       "#banner p",
       { opacity: 0 },
@@ -40,9 +35,21 @@ export default function Home() {
     gsap.fromTo(
       "#button",
       { x: "-100%", opacity: 0 },
-      { x: "0%", opacity: 1, duration: 1, ease: "power2.out", delay: 1 }
+      {
+        x: "0%",
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        delay: 1,
+        scrollTrigger: {
+          trigger: "#card",
+          start: "bottom bottom",
+          end: "top top",
+          scrub: true,
+        },
+      }
     );
-  }, []);
+  }, [scrollRef]);
 
   useEffect(() => {
     document.title = "Boty - Facturación";
@@ -88,7 +95,10 @@ export default function Home() {
             <strong>Gestión Automática de Facturación puede ayudarte:</strong>
           </span>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-10">
+        <div
+          className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-10"
+          ref={scrollRef}
+        >
           <div
             id="card"
             className="w-full sm:w-1/3 text-textprimary bg-salmon rounded-lg p-4 sm:p-6"
