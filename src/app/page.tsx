@@ -18,7 +18,7 @@ export default function Home() {
       ease: "elastic.inOut(1,2)",
       delay: 1,
       scrollTrigger: {
-        trigger: "#boty",
+        trigger: "#banner",
         start: "bottom bottom",
         end: "top top",
         scrub: true,
