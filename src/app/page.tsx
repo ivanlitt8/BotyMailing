@@ -2,30 +2,50 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "Boty - Facturación";
+  useGSAP(() => {
     gsap.fromTo(
-      "#card1",
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1,1)" }
+      "#card",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "elastic.inOut(1,2)",
+        stagger: 0.3,
+      }
     );
-    gsap.fromTo(
-      "#card2",
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.1)", delay: 0.2 }
-    );
-    gsap.fromTo(
-      "#card3",
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.2)", delay: 0.4 }
-    );
+    // gsap.fromTo(
+    //   "#card2",
+    //   { y: 50, opacity: 0 },
+    //   { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.2)", delay: 0.2 }
+    // );
+    // gsap.fromTo(
+    //   "#card3",
+    //   { y: 50, opacity: 0 },
+    //   { y: 0, opacity: 1, duration: 2, ease: "elastic.out(1.2)", delay: 0.4 }
+    // );
     gsap.fromTo(
       "#banner p",
       { opacity: 0 },
-      { opacity: 1, duration: 1.2, ease: "power2.in" }
+      { opacity: 1, duration: 1.2, ease: "power2.in", delay: 0.5 }
     );
+    gsap.fromTo(
+      "#banner",
+      { opacity: 0 },
+      { opacity: 1, duration: 1.2, ease: "power2.inOut" }
+    );
+    gsap.fromTo(
+      "#button",
+      { x: "-100%", opacity: 0 },
+      { x: "0%", opacity: 1, duration: 1, ease: "power2.out", delay: 1 }
+    );
+  }, []);
+
+  useEffect(() => {
+    document.title = "Boty - Facturación";
   }, []);
 
   return (
@@ -42,11 +62,11 @@ export default function Home() {
             height={24}
             priority
           />
-          <div className="text-center text-primary sm:text-left sm:ml-8 ml-0 max-w-screen-md">
-            <h1 className="uppercase font-bold text-4xl sm:text-5xl md:text-6xl">
+          <div className="text-center sm:text-left sm:ml-8 ml-0 max-w-screen-md">
+            <h1 className="uppercase font-bold text-primary text-4xl sm:text-5xl md:text-6xl">
               bienvenido a boty
             </h1>
-            <p className="font-bold text-lg sm:text-xl md:text-2xl mt-2">
+            <p className="font-bold text-lg text-textprimary sm:text-xl md:text-2xl mt-2">
               Utilizamos la tecnología para desarrollar herramientas que
               impulsan tu negocio.
             </p>
@@ -70,7 +90,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-10">
           <div
-            id="card1"
+            id="card"
             className="w-full sm:w-1/3 text-textprimary bg-salmon rounded-lg p-4 sm:p-6"
           >
             <Image
@@ -89,7 +109,7 @@ export default function Home() {
             </p>
           </div>
           <div
-            id="card2"
+            id="card"
             className="bg-secondary w-full sm:w-1/3 text-textprimary rounded-lg p-4 sm:p-6"
           >
             <Image
@@ -108,7 +128,7 @@ export default function Home() {
             </p>
           </div>
           <div
-            id="card3"
+            id="card"
             className="bg-accent text-textprimary w-full sm:w-1/3 shadow-md rounded-lg p-4 sm:p-6"
           >
             <Image
@@ -131,6 +151,7 @@ export default function Home() {
             Probá Boty ahora mismo (7 días sin costo)
           </span>
           <a
+            id="button"
             href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
