@@ -27,10 +27,14 @@ const config: Config = {
         lightgray: '#D9D9D9', 
         background: '#F8F7FD',
       },
-      screens: {
-        'xs': '480px',   
-        'sm': '640px',   'md': '768px',   'lg': '1024px',  'xl': '1280px',  '2xl': '1536px',  // Añadir más breakpoints personalizados si es necesario
-      },
+      // screens: {
+      //   'xs': '480px',
+      //   'sm': '640px',   
+      //   'md': '768px',   
+      //   'lg': '1024px',  
+      //   'xl': '1280px',  
+      //   '2xl': '1536px',
+      // },
     },
   },
   plugins: [],
