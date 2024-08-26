@@ -15,7 +15,9 @@ const config: Config = {
       },
       colors: {
         primary: '#3A00A5',
+        btnprimary: '#5B57E5',
         secondary: '#FFAE5E', 
+        iconbg:"#9B7AF8",
         accent: '#66BEFE', 
         salmon: '#FF6C7A', 
         promotion: '#FFEB3B',
@@ -24,6 +26,10 @@ const config: Config = {
         textprimary: '#041B3E', 
         lightgray: '#D9D9D9', 
         background: '#F8F7FD',
+      },
+      screens: {
+        'xs': '480px',   
+        'sm': '640px',   'md': '768px',   'lg': '1024px',  'xl': '1280px',  '2xl': '1536px',  // Añadir más breakpoints personalizados si es necesario
       },
     },
   },

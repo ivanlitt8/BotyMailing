@@ -1,205 +1,119 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
+import React, { useEffect } from "react";
+import SkipLogo from "@/public/components/icons/SkipLogo";
+import HealthLogh from "@/public/components/icons/HealthLogo";
+import StockRotationLogo from "@/public/components/icons/StockRotationLogo";
+import StockOutLogo from "@/public/components/icons/StockOutLogo";
+import heroBanner from "@/public/heroBanner.jpg";
 
-gsap.registerPlugin(ScrollTrigger);
+const cardsData = [
+  {
+    title: "Crea tu listado de producto",
+    text: "Boty va a crear tu listado de productos en base a la información de tus publicaciones al instante.",
+    logo: <SkipLogo />,
+  },
+  {
+    title: "Carga el Stock",
+    text: "Carga el stock en tu listado de productos. Boty va a impactar las unidades disponibles en todas las publicaciones.",
+    logo: <StockRotationLogo />,
+  },
+  {
+    title: "Evitá potenciales quiebres de stock",
+    text: "Evita faltantes de stock de tus productos con alertas tempranas gracias a Boty.",
+    logo: <StockOutLogo />,
+  },
+  {
+    title: "Salud de las publicaciones",
+    text: "Mejorá la salud de tus publicaciones completando la ficha técnica de tus productos.",
+    logo: <HealthLogh />,
+  },
+];
 
 export default function Home() {
-  const scrollRef = useRef(null);
-
-  useGSAP(() => {
-    gsap.to("#boty", {
-      y: -90,
-      opacity: 1,
-      duration: 2,
-      ease: "elastic.inOut(1,2)",
-      delay: 1,
-      scrollTrigger: {
-        trigger: "#banner",
-        start: "bottom bottom",
-        end: "top top",
-        scrub: true,
-      },
-    });
-    gsap.fromTo(
-      "#card",
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "elastic.inOut(1,2)",
-        stagger: 0.3,
-      }
-    );
-    gsap.fromTo(
-      "#banner p",
-      { opacity: 0 },
-      { opacity: 1, duration: 1.2, ease: "power2.in", delay: 0.5 }
-    );
-    gsap.fromTo(
-      "#banner",
-      { opacity: 0 },
-      { opacity: 1, duration: 1.2, ease: "power2.inOut" }
-    );
-    gsap.fromTo(
-      "#button",
-      { x: "-100%", opacity: 0 },
-      {
-        x: "0%",
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out",
-        delay: 1,
-        scrollTrigger: {
-          trigger: "#card",
-          start: "bottom bottom",
-          end: "top top",
-          scrub: true,
-        },
-      }
-    );
-  }, [scrollRef]);
-
   useEffect(() => {
-    document.title = "Boty - Facturación";
+    document.title = "Boty - Sincronización Stock";
   }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="bg-yellow-300 w-full font-semibold text-xs sm:text-sm h-6 text-black flex items-center justify-center">
-        <span> Promoción módulo facturación (7 días sin costo)</span>
+      <div className="flex">
+        <Image
+          alt="banner"
+          src={heroBanner}
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
       </div>
-      <Image
-        src="/botyLogo.svg"
-        alt="Boty Logo"
-        width={150}
-        height={24}
-        priority
-        className="mx-auto"
-      />
-      <h1 className="uppercase font-semibold text-center text-textprimary text-2xl sm:text-3xl md:text-4xl">
-        ¡bienvenido!
-      </h1>
       <main className="flex-1">
-        <div className="flex flex-col items-center sm:flex-row pb-12 sm:justify-center sm:items-start mt-10">
-          <div className="text-center sm:text-left sm:ml-8 ml-0 max-w-screen-md">
-            <p className="font-bold text-lg text-textprimary sm:text-xl md:text-2xl mt-2">
-              Utilizamos la tecnología para desarrollar herramientas que
-              impulsan tu negocio.
-            </p>
-          </div>
-        </div>
-        <div
-          id="banner"
-          className="relative z-40 bg-white border-2 border-primary max-w-screen-md mx-10 sm:mx-auto rounded-xl mt-10 p-6 sm:p-10 flex items-center justify-center text-center"
-        >
-          <p className="font-bold z-40 text-primary text-center text-md sm:text-xl">
-            Te ayudamos a mejorar la rentabilidad de tu negocio con herramientas
-            que te permiten automatizar tus procesos, para que te enfoques en la
-            estrategia y no en la operación.
-          </p>
-          <Image
-            src="/boty.svg"
-            alt="Boty Logo"
-            width={100}
-            height={24}
-            id="boty"
-            className="absolute left-0 inset-0 top-0 z-0 opacity-0"
-          />
-        </div>
-
-        <div className="mt-10 text-lg sm:text-xl md:text-2xl text-textprimary text-left sm:text-center mx-4 sm:mx-10">
-          <span className="font-medium">
-            Conocé cómo nuestro módulo de{" "}
-            <strong>Gestión Automática de Facturación puede ayudarte:</strong>
-          </span>
-        </div>
-        <div
-          className="flex flex-col sm:flex-row gap-4 sm:gap-2 my-10 mx-4 sm:mx-10"
-          ref={scrollRef}
-        >
-          <div
-            id="card"
-            className="w-full sm:w-1/3 text-textprimary bg-salmon rounded-lg p-4 sm:p-6"
-          >
-            <Image
-              src="/orderIcon.svg"
-              alt="Facturación Automática"
-              width={48}
-              height={48}
-              className="mr-4"
-            />
-            <h3 className="font-bold text-lg my-2">
-              1. Facturación Automática
-            </h3>
-            <p className="text-base font-semibold my-2">
-              Realiza la facturación de tus ventas de forma centralizada,
-              automatizada y masiva.
-            </p>
-          </div>
-          <div
-            id="card"
-            className="bg-secondary w-full sm:w-1/3 text-textprimary rounded-lg p-4 sm:p-6"
-          >
-            <Image
-              src="/mailIcon.svg"
-              alt="Facturación Automática"
-              width={48}
-              height={48}
-              className="mr-4"
-            />
-            <h3 className="text-lg font-bold my-2">
-              2. Envía tus Comprobantes
-            </h3>
-            <p className="text-base font-semibold my-2">
-              Asegurate de enviarle adjuntar la factura de compra a los
-              clientes.
-            </p>
-          </div>
-          <div
-            id="card"
-            className="bg-accent text-textprimary w-full sm:w-1/3 shadow-md rounded-lg p-4 sm:p-6"
-          >
-            <Image
-              src="/timeIcon.svg"
-              alt="Facturación Automática"
-              width={48}
-              height={48}
-              className="mr-4"
-            />
-            <h3 className="text-lg font-bold my-2">
-              3. Procesos Rápidos y Eficientes
-            </h3>
-            <p className=" text-base font-semibold my-2">
-              Ahorra tiempos en el proceso de emisión y envío de facturas.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-2xl sm:rounded-full shadow-md max-w-full mx-2 sm:mx-10 md:mx-32 border border-lightgray">
+        <div className="flex flex-col ml-20 items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-2xl sm:rounded-full shadow-md w-1/2 h-16 border border-lightgray relative bottom-5">
           <span className="text-textprimary text-sm sm:text-base font-bold sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap">
-            Probá Boty ahora mismo (7 días sin costo)
+            ¡Activá Boty ahora mismo! →
           </span>
           <a
             id="button"
             href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center bg-button text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-buttonhover mt-2 sm:mt-0 whitespace-nowrap text-base sm:text-lg"
+            className="flex items-center bg-btnprimary text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-buttonhover mt-2 sm:mt-0 whitespace-nowrap text-base sm:text-lg"
+          >
+            Nuevo
+          </a>
+        </div>
+        <div className="flex flex-col md:flex-row md:justify-around mx-10">
+          <div className="w-full md:w-2/5">
+            <h3 className="text-5xl font-bold text-textprimary">
+              ¿Cansado de perder tiempo gestionando tu inventario?
+            </h3>
+            <p className="w-full md:w-2/3 text-xl font-medium my-10">
+              Boty te permite concentrarte en lo que realmente importa: hacer
+              crecer tu negocio. Olvídate de las hojas de cálculo y las
+              actualizaciones manuales. Con Boty, tenés un control total de tu
+              stock en tiempo real.
+            </p>
+            <button className="bg-btnprimary rounded-lg text-white text-lg font-medium w-48 p-3">
+              Accedé al módulo
+            </button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 md:mt-0">
+            {cardsData.map((card, index) => (
+              <div
+                key={index}
+                className="card p-6 w-full sm:w-64 h-72 bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105"
+              >
+                <div className="card-logo bg-iconbg flex items-center justify-center w-14 h-14 rounded-full mb-4">
+                  {card.logo}
+                </div>
+                <h2 className="text-lg text-textprimary font-bold h-10 mb-6">
+                  {card.title}
+                </h2>
+                <p className="text-base font-medium text-textprimary">
+                  {card.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:justify-between p-4 bg-white rounded-2xl sm:rounded-full shadow-md max-w-full mx-2 sm:mx-10 md:mx-32 border border-lightgray">
+          <span className="text-textprimary text-sm sm:text-base font-bold sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap">
+            ¡Activa Boty ahora mismo!
+          </span>
+          <a
+            id="button"
+            href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center bg-btnprimary text-white font-medium py-2 px-4 rounded-full shadow-lg hover:bg-buttonhover mt-2 sm:mt-0 whitespace-nowrap text-base sm:text-lg"
           >
             Empecemos →
           </a>
         </div>
-        <div className="text-center pt-6 text-xs sm:font-semibold font-bold">
-          <p>
-            *Contrata Boty desde $16.000 por mes y te bonificamos 7 días para
-            que puedas probar la herramienta.
-          </p>
+        <div className="text-center pt-6 text-sm sm:font-semibold font-bold text-textprimary">
+          <p>Contratalo desde $30.000 por mes.</p>
         </div>
-        <footer className="w-full bg-primary text-center mt-16 font-bold text-white py-4 text-xs sm:text-base">
+        <footer className="w-full bg-btnprimary text-center mt-16 font-bold text-white py-4 text-xs sm:text-base">
           <span>¡Automatizá tu negocio con Boty y ahorrá tiempo y dinero!</span>
         </footer>
       </main>
