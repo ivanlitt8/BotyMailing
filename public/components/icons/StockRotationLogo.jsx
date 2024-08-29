@@ -3,8 +3,9 @@ import React from "react";
 const StockRotationLogo = () => {
   return (
     <svg
-      width="50"
-      height="50"
+      className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-16 xl:h-16 2xl:w-16 2xl:h-16"
+      // width="50"
+      // height="50"
       viewBox="0 0 80 80"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

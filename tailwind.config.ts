@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         primary: '#3A00A5',
         btnprimary: '#5B57E5',
+        tertiary: '#00DAA6',
         secondary: '#FFAE5E', 
         iconbg:"#9B7AF8",
         accent: '#66BEFE', 
@@ -28,7 +29,7 @@ const config: Config = {
         background: '#F8F7FD',
       },
       screens: {
-      //   'xs': '480px',
+        'xs': '480px',
       //   'sm': '640px',   
       //   'md': '970px',   
       //   'lg': '1024px',  
