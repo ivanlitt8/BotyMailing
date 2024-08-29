@@ -83,8 +83,8 @@ export default function Home() {
             &nbsp;de tus <br /> tiendas
           </span>
         </h1>
-        {/* <div className="absolute mt-[35%] flex flex-row mx-auto md:mx-[5%] items-center justify-between p-4 bg-white rounded-full shadow-md md:w-3/4 lg:w-2/3 xl:w-6/12 2xl:w-6/12 h-16 xl:h-24 2xl:h-32 border border-lightgray">
-          <span className="text-textprimary text-base font-bold whitespace-nowrap lg:text-xl xl:text-2xl 2xl:text-4xl ml-10">
+        <div className="absolute mt-[35%] flex flex-row mx-auto md:mx-[5%] items-center justify-between p-4 bg-white rounded-full shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-6/12 2xl:w-6/12 h-12 md:h-16 lg:h-16 xl:h-24 2xl:h-32 border border-lightgray">
+          <span className="text-textprimary font-bold whitespace-nowrap text-sm md:text-md lg:text-xl xl:text-2xl 2xl:text-4xl ml-0 xs:ml-10">
             ¡Activá Boty ahora mismo! →
           </span>
           <a
@@ -92,11 +92,11 @@ export default function Home() {
             href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center font-semibold bg-btnprimary text-white py-2 px-4 rounded-full shadow-lg hover:bg-buttonhover whitespace-nowrap text-lg xl:text-2xl 2xl:text-4xl w-40 xl:h-16 2xl:h-20"
+            className="flex items-center justify-center font-semibold bg-btnprimary text-white py-1 md:py-2 lg:py-2 px-3 xs:px-4 md:px-4 xl:px-6 2xl:px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg whitespace-nowrap text-sm sm:text-lg md:text-lg xl:text-2xl 2xl:text-4xl w-auto xl:h-16 2xl:h-20"
           >
             Activar
           </a>
-        </div> */}
+        </div>
         <Image
           alt="Frame App"
           src={frame}
@@ -117,7 +117,7 @@ export default function Home() {
               actualizaciones manuales. Con Boty, tenés un control total de tu
               stock en tiempo real.
             </p>
-            <button className="bg-btnprimary rounded-xl md:rounded-xl lg:rounded-xl xl:rounded-3xl 2xl:rounded-3xl text-white xl:text-2xl 2xl:text-4xl font-medium w-auto p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 hover:bg-buttonhover">
+            <button className="bg-btnprimary rounded-xl md:rounded-xl lg:rounded-xl xl:rounded-3xl 2xl:rounded-3xl text-white xl:text-2xl 2xl:text-4xl font-medium w-auto p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg">
               Activá Boty
             </button>
           </div>
@@ -125,27 +125,27 @@ export default function Home() {
             {cardsData.map((card, index) => (
               <div
                 key={index}
-                className="sm:p-3 md:p-3 lg:p-6 xl:p-6 2xl:p-6 w-full md:w-48 lg:w-64 xl:w-80 2xl:w-80 h-auto 2xl:h-96 bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 border border-textprimary"
+                className="p-3 md:p-3 lg:p-6 xl:p-6 2xl:p-6 w-full md:w-48 lg:w-64 xl:w-80 2xl:w-80 h-auto 2xl:h-96 bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105 border border-textprimary"
               >
-                <div className="flex flex-row sm:flex-col">
-                  <div className="card-logo bg-iconbg flex items-center justify-center sm:w-16 sm:h-16 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 rounded-full mb-4">
+                <div className="flex flex-row sm:flex-col items-center sm:items-start gap-2 sm:gap-0">
+                  <div className="card-logo bg-iconbg flex items-center justify-center w-10 h-10 sm:w-16 sm:h-16 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 rounded-full mb-4">
                     {card.logo}
                   </div>
                   <h2
-                    className={`${spaceGrotesk.className} lg:text-md xl:text-2xl 2xl:text-3xl text-textprimary font-bold md:h-10 lg:h-10 xl:h-10 2xl:h-10 mb-2 md:mb-6 lg:mb-6 xl:mb-6 2xl:mb-6`}
+                    className={`${spaceGrotesk.className} lg:text-md xl:text-2xl 2xl:text-3xl text-textprimary font-bold md:h-10 lg:h-10 xl:h-10 2xl:h-10 mb-2 md:mb-6 lg:mb-4 xl:mb-6 2xl:mb-6`}
                   >
                     {card.title}
                   </h2>
                 </div>
-                <p className="md:text-xs lg:text-sm xl:text-lg 2xl:text-2xl lg:mt-2 xl:mt-2 2xl:mt-10 font-semibold text-textprimary">
+                <p className="text-sm md:text-xs lg:text-sm xl:text-lg 2xl:text-2xl lg:mt-2 xl:mt-2 2xl:mt-6 font-semibold text-textprimary">
                   {card.text}
                 </p>
               </div>
             ))}
           </div>
         </div>
-        <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:justify-between md:p-2 lg:p-2 xl:p-4 2xl:p-6 bg-white rounded-2xl sm:rounded-full shadow-md max-w-full mx-2 sm:mx-10 md:mx-32 border border-lightgray">
-          <span className="text-textprimary lg:text-xl xl:text-2xl 2xl:text-4xl text-sm sm:text-base font-bold sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap ">
+        <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:justify-between p-2 xl:p-4 2xl:p-6 bg-white rounded-2xl sm:rounded-full shadow-md max-w-full mx-2 sm:mx-10 md:mx-32 border border-lightgray">
+          <span className="text-textprimary text-sm sm:text-base lg:text-xl xl:text-2xl 2xl:text-4xl font-bold sm:pl-4 sm:pr-2 text-center sm:text-left mb-2 sm:mb-0 whitespace-nowrap ">
             ¡Activa Boty ahora mismo!
           </span>
           <a
@@ -153,18 +153,22 @@ export default function Home() {
             href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-base lg:text-lg xl:text-2xl 2xl:text-4xl bg-btnprimary text-white font-medium md:py-2 lg:py-2 xl:py-4 2xl:py-4 md:px-2 lg:px-6 xl:px-6 2xl:px-6 rounded-full shadow-lg hover:bg-buttonhover mt-2 sm:mt-0 whitespace-nowrap"
+            className="flex items-center text-base lg:text-lg xl:text-2xl 2xl:text-4xl bg-btnprimary text-white font-medium py-2 xl:py-4 2xl:py-4 px-4 lg:px-6 xl:px-6 2xl:px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg mt-2 sm:mt-0 whitespace-nowrap"
           >
             Empecemos →
           </a>
         </div>
-        <div className="text-center pt-6 text-sm sm:font-semibold font-bold xl:text-xl 2xl:text-3xl text-textprimary">
+        <div className="text-center pt-6 text-sm font-semibold xl:text-xl 2xl:text-3xl text-textprimary">
           <p>Contratalo desde $30.000 por mes.</p>
         </div>
         <div className="flex justify-end">
-          <Image alt="closing image" src={closingImage} className="w-[20%]" />
+          <Image
+            alt="closing image"
+            src={closingImage}
+            className=" w-[40%] xs:w-[20%]"
+          />
         </div>
-        <footer className="w-full bg-btnprimary text-center font-bold text-white py-4 text-xs sm:text-base xl:text-xl 2xl:text-4xl">
+        <footer className="w-full bg-btnprimary text-center xs:font-bold text-white py-4 text-xs sm:text-base xl:text-xl 2xl:text-4xl">
           <span>¡Automatizá tu negocio con Boty y ahorrá tiempo y dinero!</span>
         </footer>
       </main>
