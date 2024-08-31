@@ -5,12 +5,13 @@ import SkipLogo from "@/public/components/icons/SkipLogo";
 import HealthLogh from "@/public/components/icons/HealthLogo";
 import StockRotationLogo from "@/public/components/icons/StockRotationLogo";
 import StockOutLogo from "@/public/components/icons/StockOutLogo";
-import backgroundMan from "@/public/backgroundMan.jpg";
 import closingImage from "@/public/closingImage.png";
 import botyLogo from "@/public/botyLogo.png";
 import meliLogo from "@/public/meliLogo.svg";
 import frame from "@/public/appSlice.svg";
 import { Space_Grotesk } from "@next/font/google";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap/gsap-core";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"], // Puedes agregar más subconjuntos si los necesitas
@@ -45,6 +46,14 @@ export default function Home() {
     document.title = "Boty - Sincronización Stock";
   }, []);
 
+  useGSAP(() => {
+    gsap.to("#text", {
+      ease: "power1.inOut",
+      opacity: 1,
+      y: 0,
+    });
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <div className="w-full h-auto flex justify-between items-center">
@@ -59,22 +68,34 @@ export default function Home() {
           className="w-1/3 max-w-xs sm:w-1/6 sm:max-w-none"
         />
       </div>
-      <div className="flex">
-        <Image
+      <div className="flex relative">
+        <img
+          src="/backMan.jpg"
           alt="banner"
-          src={backgroundMan}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
+          className="w-full hidden xs:block"
+        />
+        <img
+          src="/backManVertical.jpg"
+          alt="banner vertical"
+          className="w-full block xs:hidden"
         />
         <span
-          className={`${spaceGrotesk.className} uppercase xl:text-4xl 2xl:text-6xl absolute border border-1 ml-[5%] mt-[4%] border-tertiary text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full`}
+          id="text"
+          className={`${spaceGrotesk.className} opacity-0 uppercase xl:text-4xl 2xl:text-6xl border border-1 border-tertiary text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full absolute mx-[5%] mt-[4%] hidden xs:block`}
         >
           sincronización de stock
         </span>
+        <div className="xs:hidden absolute flex w-full justify-center mt-16">
+          <span
+            id="text"
+            className={`${spaceGrotesk.className} opacity-0 uppercase rounded-full border border-1 border-tertiary text-white px-2 py-1`}
+          >
+            sincronización de stock
+          </span>
+        </div>
         <h1
-          className={`${spaceGrotesk.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl w-[50%] mt-20 sm:mt-[10%] ml-[5%] absolute z-20`}
+          id="text"
+          className={`${spaceGrotesk.className} opacity-0 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl w-[50%] mt-20 sm:mt-[10%] ml-[5%] absolute z-20 hidden xs:block`}
         >
           <span className="text-tertiary font-semibold">
             Mejorá el manejo <br /> del stock
@@ -83,7 +104,20 @@ export default function Home() {
             &nbsp;de tus <br /> tiendas
           </span>
         </h1>
-        <div className="absolute mt-[35%] flex flex-row mx-auto md:mx-[5%] items-center justify-between p-4 bg-white rounded-full shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-6/12 2xl:w-6/12 h-12 md:h-16 lg:h-16 xl:h-24 2xl:h-32 border border-lightgray">
+        <div className="xs:hidden absolute flex w-full justify-center mt-8">
+          <h1
+            id="text"
+            className={`${spaceGrotesk.className} opacity-0 text-4xl mt-20 z-20`}
+          >
+            <span className="text-tertiary font-semibold">
+              Mejorá el manejo <br /> del stock
+            </span>
+            <span className="text-white">
+              &nbsp;de tus <br /> tiendas
+            </span>
+          </h1>
+        </div>
+        <div className="absolute mt-[135%] xs:mt-[35%] flex flex-row mx-auto md:mx-[5%] items-center justify-between p-4 bg-white rounded-full shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-6/12 2xl:w-6/12 h-12 md:h-16 lg:h-16 xl:h-24 2xl:h-32 border border-lightgray">
           <span className="text-textprimary font-bold whitespace-nowrap text-sm md:text-md lg:text-xl xl:text-2xl 2xl:text-4xl ml-0 xs:ml-10">
             ¡Activá Boty ahora mismo! →
           </span>
@@ -97,11 +131,16 @@ export default function Home() {
             Activar
           </a>
         </div>
-        <Image
+        <img
+          src="/appSlice.svg"
+          alt="frame"
+          className="w-1/2 xs:w-1/4 mt-[72%] xs:mt-[5%] ml-[3%] xs:ml-[48%] absolute z-10"
+        />
+        {/* <Image
           alt="Frame App"
           src={frame}
-          className="w-1/4 mt-[5%] ml-[48%] absolute z-10"
-        />
+          className="w-1/4 mt-[5%] ml-[48%] absolute z-10 hidden xs:block"
+        /> */}
       </div>
       <main className="flex-1">
         <div className="flex flex-col mt-10 md:flex-row justify-between mx-5 sm:mx-8 md:mx-10 lg:mx-14 xl:mx-20 2xl:mx-32">
