@@ -81,8 +81,6 @@ export default function Home() {
     });
   }, []);
 
-  //console.log(myText.chars);
-
   return (
     <div className="flex flex-col min-h-screen">
       <div className="w-full h-auto flex justify-between items-center">
@@ -155,7 +153,7 @@ export default function Home() {
           </span>
           <a
             id="button"
-            href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
+            href="https://app.boty.cloud/login?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
             className="opacity-0 flex items-center justify-center font-semibold bg-btnprimary text-white py-1 md:py-2 lg:py-2 px-3 xs:px-4 md:px-4 xl:px-6 2xl:px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg whitespace-nowrap text-sm sm:text-lg md:text-lg xl:text-2xl 2xl:text-4xl w-auto xl:h-16 2xl:h-20"
@@ -168,11 +166,6 @@ export default function Home() {
           alt="frame"
           className="w-1/2 xs:w-1/4 mt-[72%] xs:mt-[5%] ml-[3%] xs:ml-[48%] absolute z-10"
         />
-        {/* <Image
-          alt="Frame App"
-          src={frame}
-          className="w-1/4 mt-[5%] ml-[48%] absolute z-10 hidden xs:block"
-        /> */}
       </div>
       <main className="flex-1">
         <div className="flex flex-col mt-10 md:flex-row justify-between mx-5 sm:mx-8 md:mx-10 lg:mx-14 xl:mx-20 2xl:mx-32 z-30">
@@ -188,7 +181,15 @@ export default function Home() {
               actualizaciones manuales. Con Boty, tenés un control total de tu
               stock en tiempo real.
             </p>
-            <button className="bg-btnprimary rounded-xl md:rounded-xl lg:rounded-xl xl:rounded-3xl 2xl:rounded-3xl text-white xl:text-2xl 2xl:text-4xl font-medium w-auto p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg">
+            <button
+              onClick={() => {
+                window.open(
+                  "https://app.boty.cloud/login?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3",
+                  "_blank"
+                );
+              }}
+              className="bg-btnprimary rounded-xl md:rounded-xl lg:rounded-xl xl:rounded-3xl 2xl:rounded-3xl text-white xl:text-2xl 2xl:text-4xl font-medium w-auto p-2 md:p-2 lg:p-3 xl:p-4 2xl:p-6 transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg"
+            >
               Activá Boty
             </button>
           </div>
@@ -221,7 +222,7 @@ export default function Home() {
           </span>
           <a
             id="button"
-            href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
+            href="https://app.boty.cloud/login?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
             className=" opacity-0 flex items-center text-base lg:text-lg xl:text-2xl 2xl:text-4xl bg-btnprimary text-white font-medium py-2 xl:py-4 2xl:py-4 px-4 lg:px-6 xl:px-6 2xl:px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg mt-2 sm:mt-0 whitespace-nowrap"
