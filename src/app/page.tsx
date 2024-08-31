@@ -12,6 +12,7 @@ import frame from "@/public/appSlice.svg";
 import { Space_Grotesk } from "@next/font/google";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap/gsap-core";
+import SplitType from "split-type";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"], // Puedes agregar más subconjuntos si los necesitas
@@ -56,17 +57,31 @@ export default function Home() {
       "#button",
       {
         x: "-250",
-        //duration: 2,
         ease: "sine.out",
       },
       {
         x: "0",
-        duration: 1,
+        duration: 0.5,
         ease: "bounce.in",
         opacity: 1,
       }
     );
   }, []);
+
+  useEffect(() => {
+    const myText = new SplitType("#textCta", { types: "chars" });
+    console.log(myText.chars);
+
+    gsap.from(".char", {
+      opacity: 0,
+      delay: 0.2,
+      y: "-120",
+      stagger: 0.05,
+      duration: 0.3,
+    });
+  }, []);
+
+  //console.log(myText.chars);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -131,8 +146,11 @@ export default function Home() {
             </span>
           </h1>
         </div>
-        <div className="absolute mt-[135%] xs:mt-[35%] flex flex-row mx-auto md:mx-[5%] items-center justify-between p-4 bg-white rounded-full shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-6/12 2xl:w-6/12 h-12 md:h-16 lg:h-16 xl:h-24 2xl:h-32 border border-lightgray">
-          <span className="text-textprimary font-bold whitespace-nowrap text-sm md:text-md lg:text-xl xl:text-2xl 2xl:text-4xl ml-0 xs:ml-10">
+        <div className="absolute mt-[135%] xs:mt-[35%] flex flex-row mx-auto md:mx-[5%] items-center justify-between p-4 bg-white rounded-full shadow-md w-full md:w-3/4 lg:w-2/3 xl:w-6/12 2xl:w-6/12 h-12 md:h-16 lg:h-16 xl:h-24 2xl:h-32 border border-lightgray backdrop-blur-2xl backdrop-brightness-200 shadow-[#804488]">
+          <span
+            id="textCta"
+            className=" text-textprimary font-bold whitespace-nowrap text-sm md:text-md lg:text-xl xl:text-2xl 2xl:text-4xl ml-0 xs:ml-10"
+          >
             ¡Activá Boty ahora mismo! →
           </span>
           <a
@@ -157,7 +175,7 @@ export default function Home() {
         /> */}
       </div>
       <main className="flex-1">
-        <div className="flex flex-col mt-10 md:flex-row justify-between mx-5 sm:mx-8 md:mx-10 lg:mx-14 xl:mx-20 2xl:mx-32">
+        <div className="flex flex-col mt-10 md:flex-row justify-between mx-5 sm:mx-8 md:mx-10 lg:mx-14 xl:mx-20 2xl:mx-32 z-30">
           <div className="w-full md:w-2/5 2xl:w-2/5">
             <h3
               className={`${spaceGrotesk.className} text-2xl md:text-2xl lg:text-3xl xl:text-5xl 2xl:text-7xl font-bold text-textprimary`}
