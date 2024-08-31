@@ -52,6 +52,20 @@ export default function Home() {
       opacity: 1,
       y: 0,
     });
+    gsap.fromTo(
+      "#button",
+      {
+        x: "-250",
+        //duration: 2,
+        ease: "sine.out",
+      },
+      {
+        x: "0",
+        duration: 1,
+        ease: "bounce.in",
+        opacity: 1,
+      }
+    );
   }, []);
 
   return (
@@ -126,7 +140,7 @@ export default function Home() {
             href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center font-semibold bg-btnprimary text-white py-1 md:py-2 lg:py-2 px-3 xs:px-4 md:px-4 xl:px-6 2xl:px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg whitespace-nowrap text-sm sm:text-lg md:text-lg xl:text-2xl 2xl:text-4xl w-auto xl:h-16 2xl:h-20"
+            className="opacity-0 flex items-center justify-center font-semibold bg-btnprimary text-white py-1 md:py-2 lg:py-2 px-3 xs:px-4 md:px-4 xl:px-6 2xl:px-8 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg whitespace-nowrap text-sm sm:text-lg md:text-lg xl:text-2xl 2xl:text-4xl w-auto xl:h-16 2xl:h-20"
           >
             Activar
           </a>
@@ -192,7 +206,7 @@ export default function Home() {
             href="https://app.boty.cloud/hello?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-base lg:text-lg xl:text-2xl 2xl:text-4xl bg-btnprimary text-white font-medium py-2 xl:py-4 2xl:py-4 px-4 lg:px-6 xl:px-6 2xl:px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg mt-2 sm:mt-0 whitespace-nowrap"
+            className=" opacity-0 flex items-center text-base lg:text-lg xl:text-2xl 2xl:text-4xl bg-btnprimary text-white font-medium py-2 xl:py-4 2xl:py-4 px-4 lg:px-6 xl:px-6 2xl:px-6 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg mt-2 sm:mt-0 whitespace-nowrap"
           >
             Empecemos →
           </a>
