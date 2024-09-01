@@ -234,9 +234,9 @@ export default function Home() {
           <p>Contratalo desde $30.000 por mes.</p>
         </div>
         <div className="flex justify-end">
-          <Image
+          <img
+            src="/closingImage.png"
             alt="closing image"
-            src={closingImage}
             className=" w-[40%] xs:w-[20%]"
           />
         </div>
