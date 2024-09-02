@@ -96,6 +96,12 @@ export default function Login() {
             estrategia y no en la operación
           </p>
           <button
+            onClick={() => {
+              window.open(
+                "https://app.boty.cloud/login?utm_medium=facebook_remarketing_milbrands&utm_campaign=facturacion&boty_campaign=sales_billing.3",
+                "_blank"
+              );
+            }}
             id="button"
             className="opacity-0 mb-2 sm:mb-4 z-20 py-2 sm:mt-0 mt-2 rounded-lg text-md text-white font-semibold bg-btnprimary  transition-all duration-300 ease-in-out transform hover:bg-buttonhover hover:scale-105 hover:shadow-lg px-4"
           >
